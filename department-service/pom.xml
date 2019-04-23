@@ -5,7 +5,8 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.RELEASE</version>
+		<version>2.1.4.RELEASE</version>
+		<relativePath />
 	</parent>
 	<artifactId>department-service</artifactId>
 	<groupId>pl.piomin.services</groupId>
@@ -13,6 +14,8 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<docker.image.prefix>10.9.50.203/pigx</docker.image.prefix>
+		<skipTests>true</skipTests>
 	</properties>
 
 	<dependencyManagement>
@@ -20,7 +23,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Greenwich.BUILD-SNAPSHOT</version>
+				<version>Greenwich.SR1</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -77,6 +80,25 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!-- Docker maven plugin -->
+			<plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.2.0</version>
+                <configuration>
+                    <imageName>${docker.image.prefix}/${project.artifactId}:1.0</imageName>
+                    <dockerDirectory>./</dockerDirectory>
+                    <dockerHost>http://10.9.50.203</dockerHost>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+			<!-- Docker maven plugin -->
 		</plugins>
 	</build>
 
