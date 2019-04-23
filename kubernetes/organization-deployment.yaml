@@ -17,6 +17,7 @@ spec:
       containers:
       - name: organization
         image: 10.9.50.203/pigx/organization:1.0
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
         env:

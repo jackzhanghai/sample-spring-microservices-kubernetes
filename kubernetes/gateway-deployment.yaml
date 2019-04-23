@@ -17,6 +17,7 @@ spec:
       containers:
       - name: gateway
         image: 10.9.50.203/pigx/gateway:1.0
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
 ---

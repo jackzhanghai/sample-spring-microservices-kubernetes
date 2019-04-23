@@ -17,6 +17,7 @@ spec:
       containers:
       - name: employee
         image: 10.9.50.203/pigx/employee:1.0
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
         env:
