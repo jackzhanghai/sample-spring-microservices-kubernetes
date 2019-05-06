@@ -6,3 +6,5 @@ http://www.spring4all.com/article/1458
 https://piotrminkowski.wordpress.com/2018/08/02/quick-guide-to-microservices-with-kubernetes-spring-boot-2-0-and-docker/
 https://dzone.com/articles/quick-guide-to-microservices-with-kubernetes-sprin
 mvn clean install
+http://10.4.68.132:32066/swagger-ui.html
+http://10.4.68.128:31635/department/1

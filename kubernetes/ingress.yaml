@@ -10,7 +10,7 @@ spec:
     serviceName: default-http-backend
     servicePort: 80
   rules:
-   - http:
+  - http: 
       paths:
       - path: /employee
         backend:
